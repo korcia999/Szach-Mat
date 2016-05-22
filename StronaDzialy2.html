@@ -1,0 +1,570 @@
+﻿<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>matKora</title>
+    <link rel="icon" href="/static/home/headicon.png">
+    <link href='https://fonts.googleapis.com/css?family=Roboto+Condensed' rel='stylesheet' type='text/css'>
+    <!-- framework JQuery-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css">
+
+    <!-- Moje CSS -->
+    <link rel="stylesheet" type="text/css" href="/static/home/style.css" />
+
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+
+    <!-- LaTeX -->
+    <script type="text/javascript" src="http://latex.codecogs.com/latexit.js"></script>
+
+    <script src ="/static/home/mathTask.js"></script>
+
+    <style media="screen">
+    /*
+    #######  #       #  #######  #######   #    #        #######      #       ########   #######
+    #         #     #   #        #     #    #  #         #     #     # #      #          #
+    #######    #   #    #######  #######     #           #######    #   #     ########   #######
+    #           # #     #        #   #       #           #         #######    #      #   #
+    #######      #      #######  #     #     #           #        #       #   ########   #######
+     */
+
+    html,body{
+      font-family: navbarFont;
+      position: relative;
+      background-color: #566EAB;
+    }
+
+    .jumbotron{
+      background-color: #E1BCB4;
+      height: 25vh;
+    }
+
+    footer{
+      background-color: #9C86DE;
+      font-family: 'Roboto Condensed', sans-serif;
+      font-size: 1.5em;
+    }
+
+    ul{
+        list-style-type: none;
+    }
+
+    /* Site font */
+
+    @font-face {
+      font-family: navbarFont;
+      src: url('Mochary_PERSONAL_USE_ONLY.ttf');
+    }
+
+    /* Navbar buttons */
+
+    a.linkNavbar{
+      color: black;
+      font-size: 1.5em;
+    }
+
+    .navbar-light{
+      background-color: #9C86DE;
+    }
+
+    .navbar-brand{
+      padding-top: 0;
+    }
+
+    .siteContent{
+      font-family: 'Roboto Condensed', sans-serif;
+      color: #000000;
+      font-size: 1.1em;
+    }
+    /*
+
+    #     #    #########    ####   ####   #######
+    #     #    #       #    #   # #   #   #
+    #######    #       #    #    #    #   #######
+    #     #    #       #    #         #   #
+    #     #    #########    #         #   #######
+
+    */
+
+    /* navigation button */
+    #backToTopBtn{
+      min-height: 60px;
+      min-width: 100px;
+      text-align: center;
+      font-size: 1.5em;
+      color: gray;
+      opacity: 0.6;
+    }
+
+    #backToTopHidden{
+      right: 0;
+    }
+
+    #backToTopHidden.affix-top{
+      position: absolute; /* allows it to "slide" up into view */
+      bottom: -82px;
+      right: 15px;
+    }
+
+    #backToTopHidden.affix{
+      position: fixed;
+      bottom: 18px;
+      right: 15px;
+    }
+
+    /* Greeting div */
+    /* Name of the site */
+
+    #homePage{
+      padding-top: 6vh;
+      min-height: 90vh;
+      vertical-align: middle;
+      color: #4d88ff;
+    }
+
+    h1.homePageH1{
+      font-size: 5em;
+      padding-top: 10vh;
+      color: #E1BCB4;
+    }
+    /* content of bigger greeting */
+    p.homePageMat{
+      font-size: 6em;
+      color: #333333;
+    }
+    /* content of smalleg greeting */
+    p.homePageRest{
+      font-size: 2em;
+      padding-top: 15px;
+      color: #333333;
+    }
+    /* buttons to navigate */
+    li.homePageBTN{
+      padding-top: 30px;
+    }
+
+    a.homeBtn{
+      background-color: #E1BCB4;
+      min-width: 30vw;
+      min-height: 10vh;
+      font-size: 2em;
+      color: #000000;
+    }
+
+    a.homeBtn:hover{
+      background-color: #9C86DE;
+    }
+    /*
+    ###########################################################################################################
+    ###########################################################################################################
+    ###########################################################################################################
+    */
+
+    /* div with information aobut autor */
+    /* div with autor info/photo */
+    #homePageMe{
+      min-height: 100vh;
+      background-color: #F3F4E8;
+      padding-top: 10vh;
+      color: #000000;
+      padding-right: 130px;
+    }
+    /* p with autor discrie content */
+    p.homePageMeInfo{
+      font-family: 'Roboto Condensed', sans-serif;
+      font-size: 2em;
+      vertical-align: middle;
+      text-align: justify;
+    }
+    /*
+    ###########################################################################################################
+    ###########################################################################################################
+    ###########################################################################################################
+    */
+
+    /* div with info how site work */
+
+    #homePageMap{
+      min-height: 100vh;
+      padding-top: 20vh;
+      color: #0040ff;
+    }
+    /* p with info quo */
+    p.homePageMapRowHeader{
+      font-size: 2.2em;
+      padding: 20px;
+      text-align: center;
+      color: #000000;
+    }
+    /* div with logos/buttons/descripions */
+    #homePageMapRowContent{
+      text-align: center;
+    }
+
+    /* buttons to info abaut sections of sites */
+    button.buttonCollapse{
+      min-height: 60px;
+      min-width: 200px;
+      text-align: center;
+      font-size: 1.3em;
+      color: #000000;
+      background-color: #9C86DE;
+    }
+
+    /* divs with info abut sections of site */
+    #collapseChapter, #collapseExercises, #collapsePattern, #collapseExam{
+      margin: 20px;
+      font-size: 1.2em;
+      text-align: inherit;
+      padding-top: 15px;
+    }
+
+    /*
+    ###########################################################################################################
+    ###########################################################################################################
+    ###########################################################################################################
+    */
+
+    /* To jest ładnie zrobione i wogole ale nie wiem czy sie ostanie */
+
+    #homePageCuriosity{
+      min-height: 100vh;
+      align-items: center;
+      background-color: #FFE5A4;
+    }
+
+    #homePageNewsName{
+      padding-top: 12vh;
+    }
+
+    p.homePageNewsInfo{
+      text-align: left;
+      font-size: 2em;
+    }
+
+    div.curiosity{
+      padding-top: 20vh;
+    }
+
+    h1.curiosity{
+      font-size: 12vw;
+      text-align: center;
+    }
+
+    p.curiosity{
+      font-size: 5vw;
+      text-align: center;
+    }
+    /*..........................................................................................*/
+    /*    #########    #      #    ##########   #########  ##########  ########   ##########    */
+    /*    #            #      #    #        #   #       #       #      #          #        #    */
+    /*    #            ########    ##########   #########       #      ########   ##########    */
+    /*    #            #      #    #        #   #       #       #      #          #       #     */
+    /*    #########    #      #    #        #   #       #       #      ########   #        #    */
+    /*..........................................................................................*/
+
+    /* chapter/tasks */
+
+    /* the header content */
+    div.chapterListContent{
+      padding-top: 10vh;
+      align-items: center;
+      width: 70%;
+    }
+
+    p.tematsHeader{
+      font-size: 8vh;
+      background-color: #E1BCB4;
+      color: #000000;
+    }
+    /* temats buttons */
+    button.chapterBtn{
+      font-size: 2em;
+      min-width: 100%;
+      font-family: 'Roboto Condensed', sans-serif;
+    }
+    /* div with temats buttons */
+    div.tematsDiv{
+      padding-top: 2vh;
+      padding-left: 14vw;
+    }
+
+    a.tematsBtn{
+      background-color: #E1BCB4;
+      min-width: 40vw;
+      min-height: 7vh;
+      font-size: 1.5em;
+      font-family: 'Roboto Condensed', sans-serif;
+      color: #000000;
+    }
+
+    a.tematsBtn:hover{
+      background-color: #9C86DE;
+    }
+
+    /*
+      #########    ########   ###   ###      #    #########        #   #########      #      ########   #      #
+          #        #          #  # #  #     # #       #           #        #         # #    #           #     #
+          #        ########   #   #   #    #   #      #          #         #        #   #    ########   ######
+          #        #          #       #   #######     #         #          #       #######           #  #     #
+          #        ########   #       #  #       #    #        #           #      #       #  ########   #       #
+
+    */
+
+    /* buttons to filter by level */
+
+    div.taskDivChoice{
+      padding-left: 2.5%;
+    }
+
+    button.levelBtnChoice{
+      min-width: 24%;
+    }
+
+    button.GimnazjumBtn, .GimnazjumShow{
+      background-color: #80aaff;
+    }
+
+    button.LiceumBtn, .LiceumShow{
+      background-color: #ffdb4d;
+    }
+
+    button.RozszezenieBtn, .RozszezenieShow{
+      background-color: #ff8533;
+    }
+
+    div.tematContent{
+      background-color: white;
+      border-radius: 6px;
+      width: auto;
+      padding-bottom: 10px;
+      padding-top: 10px;
+    }
+
+
+    /* navigation buttons down the site in the row */
+    div.rowNavigaion{
+      padding-top: 10px;
+      padding-bottom: 20px;
+    }
+
+    a.navigation{
+      background-color: #E1BCB4;
+      min-width: 100%;
+      min-height: 10vh;
+      font-size: 2em;
+      color: #000000;
+    }
+
+    a.navigation:hover{
+      background-color: #9C86DE;
+    }
+
+
+    /*
+    ###########################################################################################################
+    ###########################################################################################################
+    ###########################################################################################################
+    */
+
+
+    /* TEMAT */
+
+    /* div with temats difrent level content */
+    div.contentTemat{
+      padding-top: 20px;
+    }
+
+    /* divs for level content */
+    div.contentGimnazjum{
+      border: solid #80aaff;
+      padding: 10px;
+      border-radius: 6px;
+    }
+
+    div.contentLiceum{
+      font-family: 'Roboto Condensed', sans-serif;
+      border: solid #566EAB;
+      padding: 10px;
+      border-radius: 6px;
+    }
+
+    div.contentRozszezenie{
+      border: solid #ff8533;
+      padding: 10px;
+      border-radius: 6px;
+    }
+
+    /*
+    ###########################################################################################################
+    ###########################################################################################################
+    ###########################################################################################################
+    */
+
+    /* TASK */
+
+    /* div with all tasks */
+    div.divTask{
+      padding-top: 20px;
+    }
+
+    /* buton to hide task content */
+    button.taskBtn{
+      min-height: 5vh;
+      min-width: 200px;
+      font-size: 2em;
+    }
+
+    /*
+    ########     #    #   ########        #      ###   ###
+    #             #  #   #               # #     #  # #  #
+    #######        #      #######       #   #    #   #   #
+    #             # #            #     #######   #       #
+    ########     #   #    #######     #       #  #       #
+    */
+
+    /* Div with content of one task from exam and solution/video */
+
+    div.examTasksDiv{
+      border: solid #566EAB;
+      border-radius: 6px;
+      padding-left: 20px;
+      padding-top: 10px;
+    }
+
+
+
+    /*
+
+    ######  #######  #######  #######  ######  #######
+    #       #     #     #        #     #       #     #
+    ######  #     #     #        #     ######  #######
+    #       #     #     #        #     #       #    #
+    #       #######     #        #     ######  #      #
+
+    */
+
+    div.footerContactHeadline{
+      font-family: navbarFont;
+      padding-left: 20px;
+    }
+
+    div.footerContantInfo{
+      padding-top: 5px;
+      padding-left: 30px;
+      font-size: 0.8em;
+    }
+
+    div.icons{
+      padding-top: 28px;
+    }
+
+    </style>
+  </head>
+  <body>
+    <!-- Navigation bar -->
+    <nav class="navbar navbar-light navbar-fixed-top">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <a class="navbar-brand" href="/">
+            <img alt="Brand" src="/static/home/navbaricon.png">
+          </a>
+        </div>
+
+        <div class="collapse navbar-collapse">
+          <ul class="nav navbar-nav">
+            <li><a class="linkNavbar" href="/Dzialy/">Dzialy</a></li>
+            <li><a class="linkNavbar" href="/Zadania/">Zadania</a></li>
+            <li><a class="linkNavbar" href="/Egzaminy/">Egazminy</a></li>
+            <li><a class="linkNavbar" href="#">Karta wzor�w</a></li>
+          </ul>
+          <ul class="nav navbar-nav navbar-right">
+              <li><a class="linkNavbar" href="#">Nakarm</a></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <!-- content of the site -->
+    <div class="container chapterListContent">
+      <!-- header with name/img of the temat-->
+      <div class="jumbotron">
+        <div class="row">
+          <div class="col-lg-10">
+            <p class="tematsHeader">
+              Pot�gi i pierwiastki
+            </p>
+          </div>
+          <div class="col-lg-2">
+            <img alt="Brand" src="/static/home/mapChapterBlack.png">
+          </div>
+        </div>
+      </div>
+      <!-- div with content of temats -->
+      <div class="container tematContent">
+        <!-- buttons to filter content -->
+        <div class="taskDivChoice">
+
+
+
+
+        </div>
+        <!-- divs with content of difrent level -->
+        <div class="contentTemat">
+
+
+          <!-- div with low Medium content-->
+          <!------------------------------------------------------ TUTAJ TEKST --------------------------------------------->
+          <div class="contentLiceum Liceum">
+            <font size="5"><b> POT�GOWANIE I PIERWIASTKOWANIE</b></font> <br><br>
+
+<font size="5"> <b>Najwa�niejsze wzory:<br> <br> </font>
+<center>
+<div lang="latex">
+
+\LARGE
+
+{a^m*a^n=a^{m+n}}\\
+
+a^m:a^n=a^{m-n}\\
+
+\\(a^m)^n=a^{m*n}
+
+\\ (a*b)^m=a^m*b^m
+
+\\ \left( \frac {a}{b} \right)^m=\frac{a^m}{b^m}
+
+</div>
+
+</center>
+</font>
+          </div>
+
+
+        </div>
+      </div>
+      <!-- div with navigation buttons -->
+      <div class="row rowNavigaion">
+        <!-- link to previous temat-->
+        <div class="col-lg-4">
+          <a class="btn navigation" href="/Temat/1/">Poprzedni Temat</a>
+        </div>
+        <!-- link to temats tasks -->
+        <div class="col-lg-4">
+          <a class="btn navigation" href="/Zadania/6/">Zadania</a>
+        </div>
+        <!-- link to next temat-->
+        <div class="col-lg-4">
+          <a class="btn navigation" href="/Temat/3/">Nast�pny Temat</a>
+        </div>
+      </div>
+    </div>
+
+  </body>
+</html>
