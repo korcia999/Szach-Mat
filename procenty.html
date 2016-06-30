@@ -710,10 +710,77 @@ a - szukana liczba <br><br>
 </table>
 
   <font size="5"> WARTO WIEDZIEĆ </font size> <br><br>
-    Trzecia część = <math xmlns="http://www.w3.org/1998/Math/MathML"><mstyle mathsize="30px"><mrow><mfrac><mi mathvariant="normal">1</mi>
+
+    <div class="row">
+
+      <div class="col-md-4">
+
+<font size="5">    Trzecia część = <math xmlns="http://www.w3.org/1998/Math/MathML"><mstyle mathsize="50px"><mrow><mfrac><mi mathvariant="normal">1</mi>
     <mn>3</mn></mfrac></mrow></mstyle></math> <br><br>
-    Piąta część = <math xmlns="http://www.w3.org/1998/Math/MathML"><mstyle mathsize="30px"><mrow><mfrac><mi mathvariant="normal">1</mi>
-    <mn>5</mn></mfrac></mrow></mstyle></math> <br><br>
+
+     </div>
+
+     <div class="col-md-8">
+
+    <head>
+    <!--Load the AJAX API-->
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript">
+     var data;
+     var chart;
+
+      // Load the Visualization API and the piechart package.
+      google.charts.load('current', {'packages':['corechart']});
+
+      // Set a callback to run when the Google Visualization API is loaded.
+      google.charts.setOnLoadCallback(drawChart);
+
+      // Callback that creates and populates a data table,
+      // instantiates the pie chart, passes in the data and
+      // draws it.
+      function drawChart() {
+
+        // Create our data table.
+        data = new google.visualization.DataTable();
+        data.addColumn('string', 'Topping');
+        data.addColumn('number', 'Slices');
+        data.addRows([
+          ['Trzecia część', 1],
+          [' ', 1],
+          [' ', 1]
+        ]);
+
+        // Set chart options
+        var options = {'title':' ',
+                       'width':500,
+                       'height':300};
+
+        // Instantiate and draw our chart, passing in some options.
+        chart = new google.visualization.PieChart(document.getElementById('chart_div'));
+        google.visualization.events.addListener(chart, 'select', selectHandler);
+        chart.draw(data, options);
+      }
+
+      function selectHandler() {
+        var selectedItem = chart.getSelection()[0];
+        var value = data.getValue(selectedItem.row, 0);
+        alert('The user selected ' + value);
+      }
+
+    </script>
+  </head>
+  <body>
+    <!--Div that will hold the pie chart-->
+    <div id="chart_div" style="width:400; height:300"></div>
+  </body>
+
+</div>
+</div>
+
+
+
+
+
 
 
 
@@ -761,8 +828,6 @@ a - szukana liczba <br><br>
 </table>
 
 <img src="wykres" alt="Tu podaj tekst alternatywny" />
-
-
 
 
 
